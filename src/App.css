@@ -1,0 +1,23 @@
+.app {
+  text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
