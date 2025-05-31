@@ -5,12 +5,12 @@ function App() {
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
   const [resultado, setResultado] = useState('');
-  const [imagem, setImagem] = useState(null); // 👉 novo state para imagem
+  const [imagem, setImagem] = useState('');
 
   const calcularIMC = () => {
     if (!peso || !altura) {
       setResultado('⚠️ Preencha todos os campos.');
-      setImagem(null);
+      setImagem('');
       return;
     }
 
@@ -48,39 +48,38 @@ function App() {
     }
 
     setResultado(`${emoji} Seu IMC é ${imc} - ${classificacao}`);
-    setImagem(imagemPath); // 👉 atualiza a imagem
+    setImagem(imagemPath);
   };
 
   return (
-    <div className="container">
-      <h1>Calculadora de IMC</h1>
+    <div className="main-container">
+      <div className="container">
+        <h1>Calculadora de IMC</h1>
 
-      <label>Peso (kg):</label>
-      <input
-        type="number"
-        value={peso}
-        onChange={(e) => setPeso(e.target.value)}
-        placeholder="Ex: 70"
-      />
+        <label>Peso (kg):</label>
+        <input
+          type="number"
+          value={peso}
+          onChange={(e) => setPeso(e.target.value)}
+          placeholder="Ex: 70"
+        />
 
-      <label>Altura (cm):</label>
-      <input
-        type="number"
-        value={altura}
-        onChange={(e) => setAltura(e.target.value)}
-        placeholder="Ex: 170"
-      />
+        <label>Altura (cm):</label>
+        <input
+          type="number"
+          value={altura}
+          onChange={(e) => setAltura(e.target.value)}
+          placeholder="Ex: 170"
+        />
 
-      <button onClick={calcularIMC}>Calcular</button>
+        <button onClick={calcularIMC}>Calcular</button>
 
-      {resultado && (
-        <div className="resultado">
-          {resultado}
-          {imagem && (
-            <div style={{ marginTop: '20px' }}>
-              <img src={imagem} alt="Resultado IMC" style={{ maxWidth: '100%', borderRadius: '12px' }} />
-            </div>
-          )}
+        {resultado && <div className="resultado">{resultado}</div>}
+      </div>
+
+      {imagem && (
+        <div className="imagem-container">
+          <img src={imagem} alt="Classificação IMC" className="imagem-ilustrativa" />
         </div>
       )}
     </div>
