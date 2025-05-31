@@ -1,30 +1,27 @@
 body {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #6dd5ed, #2193b0);
   color: #fff;
-  padding: 20px;
-  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 20px;
-  max-width: 900px;
+  padding: 20px;
+  max-width: 1000px;
   width: 100%;
 }
 
-
 .container {
-  max-width: 400px;
-  margin: 50px auto;
   background: #ffffff20;
   border-radius: 20px;
   padding: 30px;
@@ -32,6 +29,8 @@ body {
   backdrop-filter: blur(10px);
   text-align: center;
   animation: fadeIn 1s ease-in-out;
+  width: 100%;
+  max-width: 400px;
 }
 
 h1 {
@@ -83,6 +82,21 @@ button:hover {
   color: #fff;
 }
 
+.imagem-ilustrativa {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00000050;
+}
+
+.texto-imagem {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+  max-width: 300px;
+  text-align: center;
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -105,61 +119,26 @@ button:hover {
   }
 }
 
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-}
-
-.imagem-container {
-  max-width: 300px;
-  flex: 1;
-  text-align: center;
-}
-
-.imagem-ilustrativa {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px #00000030;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.mensagem {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #ffffff10;
-  padding: 10px;
-  border-radius: 10px;
-}
-
+/* 📱 Responsividade Mobile */
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
 
-  .image-container {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .image-container img {
+  .imagem-ilustrativa {
     max-width: 80%;
-    height: auto;
   }
 
-  .texto-explicativo {
-    font-size: 14px;
-    padding: 0 10px;
+  .texto-imagem {
+    max-width: 90%;
+    font-size: 15px;
   }
 
   .container {
     width: 100%;
-    max-width: 350px;
+    max-width: 90%;
   }
 }
+
