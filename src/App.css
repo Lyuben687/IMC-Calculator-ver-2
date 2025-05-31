@@ -1,27 +1,30 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #6dd5ed, #2193b0);
-  color: #fff;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .main-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
+  align-items: flex-start;
   flex-wrap: wrap;
-  padding: 40px;
-  max-width: 1000px;
+  gap: 20px;
+  max-width: 900px;
   width: 100%;
 }
 
+
 .container {
+  max-width: 400px;
+  margin: 50px auto;
   background: #ffffff20;
   border-radius: 20px;
   padding: 30px;
@@ -29,8 +32,6 @@ body {
   backdrop-filter: blur(10px);
   text-align: center;
   animation: fadeIn 1s ease-in-out;
-  max-width: 400px;
-  width: 100%;
 }
 
 h1 {
@@ -82,21 +83,6 @@ button:hover {
   color: #fff;
 }
 
-.imagem-ilustrativa {
-  max-width: 280px;
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #00000050;
-}
-
-.texto-imagem {
-  margin-top: 15px;
-  font-size: 16px;
-  color: #fff;
-  max-width: 280px;
-  text-align: center;
-}
-
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -119,27 +105,61 @@ button:hover {
   }
 }
 
-/* 📱 Responsivo para mobile */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.imagem-container {
+  max-width: 300px;
+  flex: 1;
+  text-align: center;
+}
+
+.imagem-ilustrativa {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #00000030;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.mensagem {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ffffff10;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
   }
 
-  .imagem-ilustrativa {
+  .image-container {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .image-container img {
     max-width: 80%;
+    height: auto;
   }
 
-  .texto-imagem {
-    max-width: 90%;
-    font-size: 15px;
+  .texto-explicativo {
+    font-size: 14px;
+    padding: 0 10px;
   }
 
   .container {
     width: 100%;
-    max-width: 90%;
+    max-width: 350px;
   }
 }
-
