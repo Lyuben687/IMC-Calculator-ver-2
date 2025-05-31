@@ -5,10 +5,12 @@ function App() {
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
   const [resultado, setResultado] = useState('');
+  const [imagem, setImagem] = useState(null); // 👉 novo state para imagem
 
   const calcularIMC = () => {
     if (!peso || !altura) {
       setResultado('⚠️ Preencha todos os campos.');
+      setImagem(null);
       return;
     }
 
@@ -17,28 +19,36 @@ function App() {
 
     let classificacao = '';
     let emoji = '';
+    let imagemPath = '';
 
     if (imc < 18.5) {
       classificacao = 'Abaixo do peso';
       emoji = '🦴';
+      imagemPath = '/img/baixo-peso.png';
     } else if (imc < 24.9) {
       classificacao = 'Peso normal';
       emoji = '💪';
+      imagemPath = '/img/peso-normal.png';
     } else if (imc < 29.9) {
       classificacao = 'Sobrepeso';
       emoji = '🍔';
+      imagemPath = '/img/sobrepeso.png';
     } else if (imc < 34.9) {
       classificacao = 'Obesidade grau 1';
       emoji = '⚠️';
+      imagemPath = '/img/obesidade1.png';
     } else if (imc < 39.9) {
       classificacao = 'Obesidade grau 2';
       emoji = '🚨';
+      imagemPath = '/img/obesidade2.png';
     } else {
       classificacao = 'Obesidade grau 3';
       emoji = '❗';
+      imagemPath = '/img/obesidade3.png';
     }
 
     setResultado(`${emoji} Seu IMC é ${imc} - ${classificacao}`);
+    setImagem(imagemPath); // 👉 atualiza a imagem
   };
 
   return (
@@ -63,7 +73,16 @@ function App() {
 
       <button onClick={calcularIMC}>Calcular</button>
 
-      {resultado && <div className="resultado">{resultado}</div>}
+      {resultado && (
+        <div className="resultado">
+          {resultado}
+          {imagem && (
+            <div style={{ marginTop: '20px' }}>
+              <img src={imagem} alt="Resultado IMC" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
