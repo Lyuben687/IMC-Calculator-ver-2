@@ -1,9 +1,26 @@
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #6dd5ed, #2193b0);
   color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
 
 .container {
   max-width: 400px;
