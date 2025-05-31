@@ -6,11 +6,13 @@ function App() {
   const [altura, setAltura] = useState('');
   const [resultado, setResultado] = useState('');
   const [imagem, setImagem] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
   const calcularIMC = () => {
     if (!peso || !altura) {
       setResultado('⚠️ Preencha todos os campos.');
       setImagem('');
+      setMensagem('');
       return;
     }
 
@@ -20,35 +22,43 @@ function App() {
     let classificacao = '';
     let emoji = '';
     let imagemPath = '';
+    let mensagemExtra = '';
 
     if (imc < 18.5) {
       classificacao = 'Abaixo do peso';
       emoji = '🦴';
       imagemPath = '/img/baixo-peso.png';
+      mensagemExtra = 'Considere consultar um nutricionista para ganho saudável de peso.';
     } else if (imc < 24.9) {
       classificacao = 'Peso normal';
       emoji = '💪';
       imagemPath = '/img/peso-normal.png';
+      mensagemExtra = 'Parabéns! Você está dentro do peso ideal.';
     } else if (imc < 29.9) {
       classificacao = 'Sobrepeso';
       emoji = '🍔';
       imagemPath = '/img/sobrepeso.png';
+      mensagemExtra = 'Fique atento! Mudanças simples podem melhorar sua saúde.';
     } else if (imc < 34.9) {
       classificacao = 'Obesidade grau 1';
       emoji = '⚠️';
       imagemPath = '/img/obesidade1.png';
+      mensagemExtra = 'Importante adotar hábitos saudáveis. Procure orientação médica.';
     } else if (imc < 39.9) {
       classificacao = 'Obesidade grau 2';
       emoji = '🚨';
       imagemPath = '/img/obesidade2.png';
+      mensagemExtra = 'Alerta! É recomendada uma avaliação médica detalhada.';
     } else {
       classificacao = 'Obesidade grau 3';
       emoji = '❗';
       imagemPath = '/img/obesidade3.png';
+      mensagemExtra = 'Risco severo à saúde. Procure ajuda profissional imediatamente.';
     }
 
     setResultado(`${emoji} Seu IMC é ${imc} - ${classificacao}`);
     setImagem(imagemPath);
+    setMensagem(mensagemExtra);
   };
 
   return (
@@ -80,6 +90,7 @@ function App() {
       {imagem && (
         <div className="imagem-container">
           <img src={imagem} alt="Classificação IMC" className="imagem-ilustrativa" />
+          <p className="mensagem">{mensagem}</p>
         </div>
       )}
     </div>

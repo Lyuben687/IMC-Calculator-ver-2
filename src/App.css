@@ -98,15 +98,26 @@ button:hover {
 }
 
 .imagem-container {
-  max-width: 400px;
+  max-width: 300px;
   flex: 1;
+  text-align: center;
 }
 
 .imagem-ilustrativa {
   width: 100%;
+  max-width: 250px;
   border-radius: 20px;
   box-shadow: 0 0 15px #00000030;
   animation: fadeIn 1s ease-in-out;
+}
+
+.mensagem {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ffffff10;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
@@ -119,5 +130,12 @@ button:hover {
     width: 100%;
     max-width: 90%;
   }
-}
 
+  .imagem-ilustrativa {
+    max-width: 200px;
+  }
+
+  .mensagem {
+    font-size: 14px;
+  }
+}
