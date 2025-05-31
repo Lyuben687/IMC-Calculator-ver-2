@@ -143,16 +143,23 @@ button:hover {
     align-items: center;
   }
 
-  .container, .imagem-container {
-    width: 100%;
-    max-width: 90%;
+  .image-container {
+    max-width: 100%;
+    text-align: center;
   }
 
-  .imagem-ilustrativa {
-    max-width: 200px;
+  .image-container img {
+    max-width: 80%;
+    height: auto;
   }
 
-  .mensagem {
+  .texto-explicativo {
     font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 350px;
   }
 }
